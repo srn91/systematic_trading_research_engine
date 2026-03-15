@@ -1,0 +1,11 @@
+outputs/*.csv
+outputs/*.json
+outputs/*.png
+outputs/sample_outputs/
+!outputs/.gitkeep
+
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+.conda/
