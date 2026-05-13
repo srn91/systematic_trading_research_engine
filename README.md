@@ -7,6 +7,46 @@ The engine did its job. It rejected weak signal before any real capital was put 
 
 ---
 
+
+## Proof Snapshot
+
+| Signal | Current evidence |
+|---|---|
+| Research discipline | Engine uses purged walk-forward validation, sealed 2024 holdout gating, common OOS windows, and realistic execution assumptions. |
+| Canonical run | Latest run tag is `20260315_130256`, with dev window `2020-01-30` to `2023-12-29`. |
+| Deployment gate | The 2024 holdout stayed sealed because best dev Sharpe `0.51` did not clear the required `0.8` threshold. |
+| Baseline comparison | Random barrier baseline reached Sharpe `0.76`, beating LogReg `0.51` and LGBM `0.33`, so the engine rejected the feature set. |
+| Research output | The repo preserves timestamped artifacts for model comparisons, leakage checks, and execution assumptions. |
+
+## What This Proves
+
+- The project shows scientific discipline: it rejects weak ML signal instead of forcing a favorable backtest.
+- The system is built around leakage prevention, baseline comparison, holdout integrity, and deploy/no-deploy gates.
+- The evidence maps to Applied Scientist, Data Scientist, ML Engineer, and quantitative research roles.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    A["Daily SPY bars"] --> B["Feature engineering"]
+    B --> C["Purged walk-forward validation"]
+    C --> D["Baseline strategies"]
+    C --> E["ML models"]
+    D --> F["Common OOS comparison"]
+    E --> F
+    F --> G{"Sharpe gate >= 0.8"}
+    G -->|fail| H["Keep 2024 holdout sealed"]
+    G -->|pass| I["Open 2024 holdout once"]
+```
+
+## Run Steps
+
+```bash
+git clone https://github.com/srn91/systematic_trading_research_engine.git
+cd systematic_trading_research_engine
+python3 run_backtest.py
+```
+
 ## What this is
 
 This is **not** a trading bot. It is a research engine designed to answer one hard question honestly:
