@@ -8,9 +8,9 @@ The engine did its job. It rejected weak signal before any real capital was put 
 ---
 
 
-## Proof Snapshot
+## Results
 
-| Signal | Current evidence |
+| Area | Details |
 |---|---|
 | Research discipline | Engine uses purged walk-forward validation, sealed 2024 holdout gating, common OOS windows, and realistic execution assumptions. |
 | Canonical run | Latest run tag is `20260315_130256`, with dev window `2020-01-30` to `2023-12-29`. |
@@ -18,11 +18,11 @@ The engine did its job. It rejected weak signal before any real capital was put 
 | Baseline comparison | Random barrier baseline reached Sharpe `0.76`, beating LogReg `0.51` and LGBM `0.33`, so the engine rejected the feature set. |
 | Research output | The repo preserves timestamped artifacts for model comparisons, leakage checks, and execution assumptions. |
 
-## What This Proves
+## Overview
 
 - The project shows scientific discipline: it rejects weak ML signal instead of forcing a favorable backtest.
 - The system is built around leakage prevention, baseline comparison, holdout integrity, and deploy/no-deploy gates.
-- The evidence maps to Applied Scientist, Data Scientist, ML Engineer, and quantitative research roles.
+- The implementation keeps the research path auditable: features, labels, validation windows, baselines, model outputs, and deployment gates are documented together.
 
 ## Architecture
 
@@ -47,7 +47,7 @@ cd systematic_trading_research_engine
 python3 run_backtest.py
 ```
 
-## What this is
+## Project Overview
 
 This is **not** a trading bot. It is a research engine designed to answer one hard question honestly:
 
